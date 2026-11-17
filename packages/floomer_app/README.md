@@ -1,17 +1,17 @@
 # floomer
 
-A new Flutter project.
+Zoomer Application written in Flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a desktop utility app that lets you zoom into a screenshot of your current desktop.
 
-A few resources to get you started if this is your first Flutter project:
+## How it works
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Pressing a shortcut immediately takes a screenshot of the current desktop and opens a borderless fullscreen window
+containing it. Afterwards you can zoom in/out, pan around, activate a flashlight effect to show certain parts of the desktop to other people or draw shapes onto the image using your mouse.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## What is it good for?
+
+It's more like a learning tool for me to get a closer look on how somewhat native-interops work in flutter. Besides that it's a good tool to share / highlight certain parts of your current desktop with other people
+during a screen-sharing session
