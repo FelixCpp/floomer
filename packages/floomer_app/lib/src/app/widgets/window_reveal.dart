@@ -25,7 +25,7 @@ class _WindowRevealState extends State<WindowReveal> {
 
     final bloc = BlocProvider.of<AppWindowBloc>(context);
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      bloc.add(const AppWindowEvent.showRequested());
+      bloc.add(const .showRequested());
     });
   }
 

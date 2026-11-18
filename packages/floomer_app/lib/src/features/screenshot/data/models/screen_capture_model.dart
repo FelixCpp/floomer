@@ -41,7 +41,7 @@ class const ScreenCaptureModel({
       pixels,
       width,
       height,
-      ui.PixelFormat.bgra8888,
+      .bgra8888,
       completer.complete,
       rowBytes: bytesPerRow,
     );

@@ -18,7 +18,7 @@ class AppWindowBloc({
   final _openScreenRecordingSettings = OpenScreenRecordingSettings(repository);
   final _closeApp = CloseApp(repository);
 
-  this : super(const AppWindowState.hidden()) {
+  this : super(const .hidden()) {
     on<_ShowRequested>(_onShowRequested, transformer: droppable());
     on<_ScreenRecordingSettingsRequested>(
       _onSettingsRequested,
@@ -33,9 +33,9 @@ class AppWindowBloc({
   ) async {
     try {
       await _showWindow();
-      emit(const AppWindowState.visible());
+      emit(const .visible());
     } on AppWindowFailure catch (failure) {
-      emit(AppWindowState.failed(failure));
+      emit(.failed(failure));
     }
   }
 
@@ -46,7 +46,7 @@ class AppWindowBloc({
     try {
       await _openScreenRecordingSettings();
     } on AppWindowFailure catch (failure) {
-      emit(AppWindowState.failed(failure));
+      emit(.failed(failure));
     }
   }
 
@@ -57,7 +57,7 @@ class AppWindowBloc({
     try {
       await _closeApp();
     } on AppWindowFailure catch (failure) {
-      emit(AppWindowState.failed(failure));
+      emit(.failed(failure));
     }
   }
 }

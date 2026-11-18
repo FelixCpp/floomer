@@ -24,7 +24,7 @@ class const ScreenshotScope({
           repository: RepositoryProvider.of<ScreenshotRepository>(
             context,
           ),
-        )..add(const ScreenshotEvent.requested()),
+        )..add(const .requested()),
         child: child,
       ),
     );

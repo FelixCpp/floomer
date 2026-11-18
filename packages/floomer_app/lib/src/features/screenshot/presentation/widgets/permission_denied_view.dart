@@ -16,12 +16,12 @@ class const PermissionDeniedView({super.key}) extends StatelessWidget {
       actions: [
         FilledButton(
           onPressed: () => bloc.add(
-            const AppWindowEvent.screenRecordingSettingsRequested(),
+            const .screenRecordingSettingsRequested(),
           ),
           child: Text('Open System Settings'),
         ),
         TextButton(
-          onPressed: () => bloc.add(const AppWindowEvent.closeRequested()),
+          onPressed: () => bloc.add(const .closeRequested()),
           child: Text('Quit'),
         ),
       ],

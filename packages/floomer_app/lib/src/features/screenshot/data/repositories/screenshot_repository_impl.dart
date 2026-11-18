@@ -35,12 +35,10 @@ class ScreenshotRepositoryImpl({
 
   ScreenshotFailure _failureFor(PlatformException exception) {
     return switch (exception.code) {
-      FloomerMethodChannel.permissionDeniedCode =>
-        const ScreenshotFailure.permissionDenied(),
-      FloomerMethodChannel.noDisplayCode => const ScreenshotFailure.noDisplay(),
-      FloomerMethodChannel.conversionFailedCode =>
-        const ScreenshotFailure.conversionFailed(),
-      _ => ScreenshotFailure.unexpected(exception.message ?? exception.code),
+      FloomerMethodChannel.permissionDeniedCode => const .permissionDenied(),
+      FloomerMethodChannel.noDisplayCode => const .noDisplay(),
+      FloomerMethodChannel.conversionFailedCode => const .conversionFailed(),
+      _ => .unexpected(exception.message ?? exception.code),
     };
   }
 }

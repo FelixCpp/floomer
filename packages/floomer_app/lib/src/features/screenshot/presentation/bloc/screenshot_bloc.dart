@@ -15,7 +15,7 @@ class ScreenshotBloc({
 }) extends Bloc<ScreenshotEvent, ScreenshotState> {
   final _captureScreenshot = CaptureScreenshot(repository);
 
-  this : super(const ScreenshotState.initial()) {
+  this : super(const .initial()) {
     on<_Requested>(_onRequested, transformer: droppable());
   }
 
@@ -23,12 +23,12 @@ class ScreenshotBloc({
     _Requested event,
     Emitter<ScreenshotState> emit,
   ) async {
-    emit(const ScreenshotState.inProgress());
+    emit(const .inProgress());
 
     try {
-      emit(ScreenshotState.ready(await _captureScreenshot()));
+      emit(.ready(await _captureScreenshot()));
     } on ScreenshotFailure catch (failure) {
-      emit(ScreenshotState.failed(failure));
+      emit(.failed(failure));
     }
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:ui' as ui;
-
 import 'package:floomer/src/features/screenshot/domain/entities/screenshot.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -12,7 +10,7 @@ class const CaptureView({
     return RawImage(
       image: screenshot.image,
       scale: screenshot.scale,
-      filterQuality: ui.FilterQuality.none,
+      filterQuality: .none,
     );
   }
 }

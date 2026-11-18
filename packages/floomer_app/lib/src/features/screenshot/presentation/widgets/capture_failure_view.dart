@@ -17,7 +17,7 @@ class const CaptureFailureView({
         TextButton(
           onPressed: () {
             BlocProvider.of<AppWindowBloc>(context).add(
-              const AppWindowEvent.closeRequested(),
+              const .closeRequested(),
             );
           },
           child: Text('Quit'),
