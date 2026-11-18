@@ -242,13 +242,13 @@ extension ScreenshotStatePatterns on ScreenshotState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ScreenshotInitial value)?  initial,TResult Function( ScreenshotInProgress value)?  inProgress,TResult Function( ScreenshotReady value)?  ready,TResult Function( ScreenshotFailed value)?  failed,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _InProgress value)?  inProgress,TResult Function( _Ready value)?  ready,TResult Function( _Failed value)?  failed,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case ScreenshotInitial() when initial != null:
-return initial(_that);case ScreenshotInProgress() when inProgress != null:
-return inProgress(_that);case ScreenshotReady() when ready != null:
-return ready(_that);case ScreenshotFailed() when failed != null:
+case _Initial() when initial != null:
+return initial(_that);case _InProgress() when inProgress != null:
+return inProgress(_that);case _Ready() when ready != null:
+return ready(_that);case _Failed() when failed != null:
 return failed(_that);case _:
   return orElse();
 
@@ -267,13 +267,13 @@ return failed(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ScreenshotInitial value)  initial,required TResult Function( ScreenshotInProgress value)  inProgress,required TResult Function( ScreenshotReady value)  ready,required TResult Function( ScreenshotFailed value)  failed,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _InProgress value)  inProgress,required TResult Function( _Ready value)  ready,required TResult Function( _Failed value)  failed,}){
 final _that = this;
 switch (_that) {
-case ScreenshotInitial():
-return initial(_that);case ScreenshotInProgress():
-return inProgress(_that);case ScreenshotReady():
-return ready(_that);case ScreenshotFailed():
+case _Initial():
+return initial(_that);case _InProgress():
+return inProgress(_that);case _Ready():
+return ready(_that);case _Failed():
 return failed(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -288,13 +288,13 @@ return failed(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ScreenshotInitial value)?  initial,TResult? Function( ScreenshotInProgress value)?  inProgress,TResult? Function( ScreenshotReady value)?  ready,TResult? Function( ScreenshotFailed value)?  failed,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _InProgress value)?  inProgress,TResult? Function( _Ready value)?  ready,TResult? Function( _Failed value)?  failed,}){
 final _that = this;
 switch (_that) {
-case ScreenshotInitial() when initial != null:
-return initial(_that);case ScreenshotInProgress() when inProgress != null:
-return inProgress(_that);case ScreenshotReady() when ready != null:
-return ready(_that);case ScreenshotFailed() when failed != null:
+case _Initial() when initial != null:
+return initial(_that);case _InProgress() when inProgress != null:
+return inProgress(_that);case _Ready() when ready != null:
+return ready(_that);case _Failed() when failed != null:
 return failed(_that);case _:
   return null;
 
@@ -312,12 +312,12 @@ return failed(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  inProgress,TResult Function( Screenshot screenshot)?  ready,TResult Function( ScreenshotFailure failure)?  failed,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  inProgress,TResult Function( ScreenCapture screenshot)?  ready,TResult Function( ScreenshotFailure failure)?  failed,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case ScreenshotInitial() when initial != null:
-return initial();case ScreenshotInProgress() when inProgress != null:
-return inProgress();case ScreenshotReady() when ready != null:
-return ready(_that.screenshot);case ScreenshotFailed() when failed != null:
+case _Initial() when initial != null:
+return initial();case _InProgress() when inProgress != null:
+return inProgress();case _Ready() when ready != null:
+return ready(_that.screenshot);case _Failed() when failed != null:
 return failed(_that.failure);case _:
   return orElse();
 
@@ -336,12 +336,12 @@ return failed(_that.failure);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  inProgress,required TResult Function( Screenshot screenshot)  ready,required TResult Function( ScreenshotFailure failure)  failed,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  inProgress,required TResult Function( ScreenCapture screenshot)  ready,required TResult Function( ScreenshotFailure failure)  failed,}) {final _that = this;
 switch (_that) {
-case ScreenshotInitial():
-return initial();case ScreenshotInProgress():
-return inProgress();case ScreenshotReady():
-return ready(_that.screenshot);case ScreenshotFailed():
+case _Initial():
+return initial();case _InProgress():
+return inProgress();case _Ready():
+return ready(_that.screenshot);case _Failed():
 return failed(_that.failure);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -356,12 +356,12 @@ return failed(_that.failure);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  inProgress,TResult? Function( Screenshot screenshot)?  ready,TResult? Function( ScreenshotFailure failure)?  failed,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  inProgress,TResult? Function( ScreenCapture screenshot)?  ready,TResult? Function( ScreenshotFailure failure)?  failed,}) {final _that = this;
 switch (_that) {
-case ScreenshotInitial() when initial != null:
-return initial();case ScreenshotInProgress() when inProgress != null:
-return inProgress();case ScreenshotReady() when ready != null:
-return ready(_that.screenshot);case ScreenshotFailed() when failed != null:
+case _Initial() when initial != null:
+return initial();case _InProgress() when inProgress != null:
+return inProgress();case _Ready() when ready != null:
+return ready(_that.screenshot);case _Failed() when failed != null:
 return failed(_that.failure);case _:
   return null;
 
@@ -373,8 +373,8 @@ return failed(_that.failure);case _:
 /// @nodoc
 
 
-class ScreenshotInitial extends ScreenshotState {
-  const ScreenshotInitial(): super._();
+class _Initial extends ScreenshotState {
+  const _Initial(): super._();
   
 
 
@@ -384,7 +384,7 @@ class ScreenshotInitial extends ScreenshotState {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is ScreenshotInitial);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
 }
 
 
@@ -405,8 +405,8 @@ String toString() {
 /// @nodoc
 
 
-class ScreenshotInProgress extends ScreenshotState {
-  const ScreenshotInProgress(): super._();
+class _InProgress extends ScreenshotState {
+  const _InProgress(): super._();
   
 
 
@@ -416,7 +416,7 @@ class ScreenshotInProgress extends ScreenshotState {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is ScreenshotInProgress);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _InProgress);
 }
 
 
@@ -437,23 +437,23 @@ String toString() {
 /// @nodoc
 
 
-class ScreenshotReady extends ScreenshotState {
-  const ScreenshotReady(this.screenshot): super._();
+class _Ready extends ScreenshotState {
+  const _Ready(this.screenshot): super._();
   
 
- final  Screenshot screenshot;
+ final  ScreenCapture screenshot;
 
 /// Create a copy of ScreenshotState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ScreenshotReadyCopyWith<ScreenshotReady> get copyWith => _$ScreenshotReadyCopyWithImpl<ScreenshotReady>(this, _$identity);
+_$ReadyCopyWith<_Ready> get copyWith => __$ReadyCopyWithImpl<_Ready>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is ScreenshotReady&&(identical(other.screenshot, screenshot) || other.screenshot == screenshot));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Ready&&(identical(other.screenshot, screenshot) || other.screenshot == screenshot));
 }
 
 
@@ -471,31 +471,31 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $ScreenshotReadyCopyWith<$Res> implements $ScreenshotStateCopyWith<$Res> {
-  factory $ScreenshotReadyCopyWith(ScreenshotReady value, $Res Function(ScreenshotReady) _then) = _$ScreenshotReadyCopyWithImpl;
+abstract mixin class _$ReadyCopyWith<$Res> implements $ScreenshotStateCopyWith<$Res> {
+  factory _$ReadyCopyWith(_Ready value, $Res Function(_Ready) _then) = __$ReadyCopyWithImpl;
 @useResult
 $Res call({
- Screenshot screenshot
+ ScreenCapture screenshot
 });
 
 
-$ScreenshotCopyWith<$Res> get screenshot;
+$ScreenCaptureCopyWith<$Res> get screenshot;
 
 }
 /// @nodoc
-class _$ScreenshotReadyCopyWithImpl<$Res>
-    implements $ScreenshotReadyCopyWith<$Res> {
-  _$ScreenshotReadyCopyWithImpl(this._self, this._then);
+class __$ReadyCopyWithImpl<$Res>
+    implements _$ReadyCopyWith<$Res> {
+  __$ReadyCopyWithImpl(this._self, this._then);
 
-  final ScreenshotReady _self;
-  final $Res Function(ScreenshotReady) _then;
+  final _Ready _self;
+  final $Res Function(_Ready) _then;
 
 /// Create a copy of ScreenshotState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? screenshot = null,}) {
-  return _then(ScreenshotReady(
+  return _then(_Ready(
 null == screenshot ? _self.screenshot : screenshot // ignore: cast_nullable_to_non_nullable
-as Screenshot,
+as ScreenCapture,
   ));
 }
 
@@ -503,9 +503,9 @@ as Screenshot,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ScreenshotCopyWith<$Res> get screenshot {
+$ScreenCaptureCopyWith<$Res> get screenshot {
   
-  return $ScreenshotCopyWith<$Res>(_self.screenshot, (value) {
+  return $ScreenCaptureCopyWith<$Res>(_self.screenshot, (value) {
     return _then(_self.copyWith(screenshot: value));
   });
 }
@@ -514,8 +514,8 @@ $ScreenshotCopyWith<$Res> get screenshot {
 /// @nodoc
 
 
-class ScreenshotFailed extends ScreenshotState {
-  const ScreenshotFailed(this.failure): super._();
+class _Failed extends ScreenshotState {
+  const _Failed(this.failure): super._();
   
 
  final  ScreenshotFailure failure;
@@ -524,13 +524,13 @@ class ScreenshotFailed extends ScreenshotState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ScreenshotFailedCopyWith<ScreenshotFailed> get copyWith => _$ScreenshotFailedCopyWithImpl<ScreenshotFailed>(this, _$identity);
+_$FailedCopyWith<_Failed> get copyWith => __$FailedCopyWithImpl<_Failed>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is ScreenshotFailed&&(identical(other.failure, failure) || other.failure == failure));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Failed&&(identical(other.failure, failure) || other.failure == failure));
 }
 
 
@@ -548,8 +548,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $ScreenshotFailedCopyWith<$Res> implements $ScreenshotStateCopyWith<$Res> {
-  factory $ScreenshotFailedCopyWith(ScreenshotFailed value, $Res Function(ScreenshotFailed) _then) = _$ScreenshotFailedCopyWithImpl;
+abstract mixin class _$FailedCopyWith<$Res> implements $ScreenshotStateCopyWith<$Res> {
+  factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) _then) = __$FailedCopyWithImpl;
 @useResult
 $Res call({
  ScreenshotFailure failure
@@ -560,17 +560,17 @@ $ScreenshotFailureCopyWith<$Res> get failure;
 
 }
 /// @nodoc
-class _$ScreenshotFailedCopyWithImpl<$Res>
-    implements $ScreenshotFailedCopyWith<$Res> {
-  _$ScreenshotFailedCopyWithImpl(this._self, this._then);
+class __$FailedCopyWithImpl<$Res>
+    implements _$FailedCopyWith<$Res> {
+  __$FailedCopyWithImpl(this._self, this._then);
 
-  final ScreenshotFailed _self;
-  final $Res Function(ScreenshotFailed) _then;
+  final _Failed _self;
+  final $Res Function(_Failed) _then;
 
 /// Create a copy of ScreenshotState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? failure = null,}) {
-  return _then(ScreenshotFailed(
+  return _then(_Failed(
 null == failure ? _self.failure : failure // ignore: cast_nullable_to_non_nullable
 as ScreenshotFailure,
   ));

@@ -10,18 +10,15 @@ class const ScreenshotPage({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ScreenshotBloc, ScreenshotState>(
-      builder: (context, state) => switch (state) {
-        ScreenshotInitial() ||
-        ScreenshotInProgress() => const SizedBox.shrink(),
-        ScreenshotReady(:final screenshot) => CaptureView(
-          screenshot: screenshot,
+      builder: (context, state) => state.when(
+        initial: () => const SizedBox.shrink(),
+        inProgress: () => const SizedBox.shrink(),
+        ready: (screenshot) => CaptureView(screenshot: screenshot),
+        failed: (failure) => failure.maybeWhen(
+          permissionDenied: () => const PermissionDeniedView(),
+          orElse: () => CaptureFailureView(failure: failure),
         ),
-        ScreenshotFailed(failure: PermissionDeniedFailure()) =>
-          const PermissionDeniedView(),
-        ScreenshotFailed(:final failure) => CaptureFailureView(
-          failure: failure,
-        ),
-      },
+      ),
     );
   }
 }

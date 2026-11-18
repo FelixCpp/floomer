@@ -56,13 +56,13 @@ extension ScreenshotFailurePatterns on ScreenshotFailure {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( PermissionDeniedFailure value)?  permissionDenied,TResult Function( NoDisplayFailure value)?  noDisplay,TResult Function( ConversionFailedFailure value)?  conversionFailed,TResult Function( UnexpectedScreenshotFailure value)?  unexpected,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _PermissionDenied value)?  permissionDenied,TResult Function( _NoDisplay value)?  noDisplay,TResult Function( _ConversionFailed value)?  conversionFailed,TResult Function( _Unexpected value)?  unexpected,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case PermissionDeniedFailure() when permissionDenied != null:
-return permissionDenied(_that);case NoDisplayFailure() when noDisplay != null:
-return noDisplay(_that);case ConversionFailedFailure() when conversionFailed != null:
-return conversionFailed(_that);case UnexpectedScreenshotFailure() when unexpected != null:
+case _PermissionDenied() when permissionDenied != null:
+return permissionDenied(_that);case _NoDisplay() when noDisplay != null:
+return noDisplay(_that);case _ConversionFailed() when conversionFailed != null:
+return conversionFailed(_that);case _Unexpected() when unexpected != null:
 return unexpected(_that);case _:
   return orElse();
 
@@ -81,13 +81,13 @@ return unexpected(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( PermissionDeniedFailure value)  permissionDenied,required TResult Function( NoDisplayFailure value)  noDisplay,required TResult Function( ConversionFailedFailure value)  conversionFailed,required TResult Function( UnexpectedScreenshotFailure value)  unexpected,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _PermissionDenied value)  permissionDenied,required TResult Function( _NoDisplay value)  noDisplay,required TResult Function( _ConversionFailed value)  conversionFailed,required TResult Function( _Unexpected value)  unexpected,}){
 final _that = this;
 switch (_that) {
-case PermissionDeniedFailure():
-return permissionDenied(_that);case NoDisplayFailure():
-return noDisplay(_that);case ConversionFailedFailure():
-return conversionFailed(_that);case UnexpectedScreenshotFailure():
+case _PermissionDenied():
+return permissionDenied(_that);case _NoDisplay():
+return noDisplay(_that);case _ConversionFailed():
+return conversionFailed(_that);case _Unexpected():
 return unexpected(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -102,13 +102,13 @@ return unexpected(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( PermissionDeniedFailure value)?  permissionDenied,TResult? Function( NoDisplayFailure value)?  noDisplay,TResult? Function( ConversionFailedFailure value)?  conversionFailed,TResult? Function( UnexpectedScreenshotFailure value)?  unexpected,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _PermissionDenied value)?  permissionDenied,TResult? Function( _NoDisplay value)?  noDisplay,TResult? Function( _ConversionFailed value)?  conversionFailed,TResult? Function( _Unexpected value)?  unexpected,}){
 final _that = this;
 switch (_that) {
-case PermissionDeniedFailure() when permissionDenied != null:
-return permissionDenied(_that);case NoDisplayFailure() when noDisplay != null:
-return noDisplay(_that);case ConversionFailedFailure() when conversionFailed != null:
-return conversionFailed(_that);case UnexpectedScreenshotFailure() when unexpected != null:
+case _PermissionDenied() when permissionDenied != null:
+return permissionDenied(_that);case _NoDisplay() when noDisplay != null:
+return noDisplay(_that);case _ConversionFailed() when conversionFailed != null:
+return conversionFailed(_that);case _Unexpected() when unexpected != null:
 return unexpected(_that);case _:
   return null;
 
@@ -128,10 +128,10 @@ return unexpected(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  permissionDenied,TResult Function()?  noDisplay,TResult Function()?  conversionFailed,TResult Function( String message)?  unexpected,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case PermissionDeniedFailure() when permissionDenied != null:
-return permissionDenied();case NoDisplayFailure() when noDisplay != null:
-return noDisplay();case ConversionFailedFailure() when conversionFailed != null:
-return conversionFailed();case UnexpectedScreenshotFailure() when unexpected != null:
+case _PermissionDenied() when permissionDenied != null:
+return permissionDenied();case _NoDisplay() when noDisplay != null:
+return noDisplay();case _ConversionFailed() when conversionFailed != null:
+return conversionFailed();case _Unexpected() when unexpected != null:
 return unexpected(_that.message);case _:
   return orElse();
 
@@ -152,10 +152,10 @@ return unexpected(_that.message);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  permissionDenied,required TResult Function()  noDisplay,required TResult Function()  conversionFailed,required TResult Function( String message)  unexpected,}) {final _that = this;
 switch (_that) {
-case PermissionDeniedFailure():
-return permissionDenied();case NoDisplayFailure():
-return noDisplay();case ConversionFailedFailure():
-return conversionFailed();case UnexpectedScreenshotFailure():
+case _PermissionDenied():
+return permissionDenied();case _NoDisplay():
+return noDisplay();case _ConversionFailed():
+return conversionFailed();case _Unexpected():
 return unexpected(_that.message);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -172,10 +172,10 @@ return unexpected(_that.message);}
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  permissionDenied,TResult? Function()?  noDisplay,TResult? Function()?  conversionFailed,TResult? Function( String message)?  unexpected,}) {final _that = this;
 switch (_that) {
-case PermissionDeniedFailure() when permissionDenied != null:
-return permissionDenied();case NoDisplayFailure() when noDisplay != null:
-return noDisplay();case ConversionFailedFailure() when conversionFailed != null:
-return conversionFailed();case UnexpectedScreenshotFailure() when unexpected != null:
+case _PermissionDenied() when permissionDenied != null:
+return permissionDenied();case _NoDisplay() when noDisplay != null:
+return noDisplay();case _ConversionFailed() when conversionFailed != null:
+return conversionFailed();case _Unexpected() when unexpected != null:
 return unexpected(_that.message);case _:
   return null;
 
@@ -187,8 +187,8 @@ return unexpected(_that.message);case _:
 /// @nodoc
 
 
-class PermissionDeniedFailure implements ScreenshotFailure {
-  const PermissionDeniedFailure();
+class _PermissionDenied implements ScreenshotFailure {
+  const _PermissionDenied();
   
 
 
@@ -198,7 +198,7 @@ class PermissionDeniedFailure implements ScreenshotFailure {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is PermissionDeniedFailure);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PermissionDenied);
 }
 
 
@@ -219,8 +219,8 @@ String toString() {
 /// @nodoc
 
 
-class NoDisplayFailure implements ScreenshotFailure {
-  const NoDisplayFailure();
+class _NoDisplay implements ScreenshotFailure {
+  const _NoDisplay();
   
 
 
@@ -230,7 +230,7 @@ class NoDisplayFailure implements ScreenshotFailure {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is NoDisplayFailure);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _NoDisplay);
 }
 
 
@@ -251,8 +251,8 @@ String toString() {
 /// @nodoc
 
 
-class ConversionFailedFailure implements ScreenshotFailure {
-  const ConversionFailedFailure();
+class _ConversionFailed implements ScreenshotFailure {
+  const _ConversionFailed();
   
 
 
@@ -262,7 +262,7 @@ class ConversionFailedFailure implements ScreenshotFailure {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is ConversionFailedFailure);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConversionFailed);
 }
 
 
@@ -283,8 +283,8 @@ String toString() {
 /// @nodoc
 
 
-class UnexpectedScreenshotFailure implements ScreenshotFailure {
-  const UnexpectedScreenshotFailure(this.message);
+class _Unexpected implements ScreenshotFailure {
+  const _Unexpected(this.message);
   
 
  final  String message;
@@ -293,13 +293,13 @@ class UnexpectedScreenshotFailure implements ScreenshotFailure {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UnexpectedScreenshotFailureCopyWith<UnexpectedScreenshotFailure> get copyWith => _$UnexpectedScreenshotFailureCopyWithImpl<UnexpectedScreenshotFailure>(this, _$identity);
+_$UnexpectedCopyWith<_Unexpected> get copyWith => __$UnexpectedCopyWithImpl<_Unexpected>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is UnexpectedScreenshotFailure&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Unexpected&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -317,8 +317,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $UnexpectedScreenshotFailureCopyWith<$Res> implements $ScreenshotFailureCopyWith<$Res> {
-  factory $UnexpectedScreenshotFailureCopyWith(UnexpectedScreenshotFailure value, $Res Function(UnexpectedScreenshotFailure) _then) = _$UnexpectedScreenshotFailureCopyWithImpl;
+abstract mixin class _$UnexpectedCopyWith<$Res> implements $ScreenshotFailureCopyWith<$Res> {
+  factory _$UnexpectedCopyWith(_Unexpected value, $Res Function(_Unexpected) _then) = __$UnexpectedCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -329,17 +329,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$UnexpectedScreenshotFailureCopyWithImpl<$Res>
-    implements $UnexpectedScreenshotFailureCopyWith<$Res> {
-  _$UnexpectedScreenshotFailureCopyWithImpl(this._self, this._then);
+class __$UnexpectedCopyWithImpl<$Res>
+    implements _$UnexpectedCopyWith<$Res> {
+  __$UnexpectedCopyWithImpl(this._self, this._then);
 
-  final UnexpectedScreenshotFailure _self;
-  final $Res Function(UnexpectedScreenshotFailure) _then;
+  final _Unexpected _self;
+  final $Res Function(_Unexpected) _then;
 
 /// Create a copy of ScreenshotFailure
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(UnexpectedScreenshotFailure(
+  return _then(_Unexpected(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));

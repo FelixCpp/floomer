@@ -5,9 +5,7 @@ part 'app_window_failure.freezed.dart';
 
 @freezed
 sealed class AppWindowFailure with _$AppWindowFailure implements Failure {
-  const factory AppWindowFailure.settingsUnavailable() =
-      SettingsUnavailableFailure;
+  const factory AppWindowFailure.settingsUnavailable() = _SettingsUnavailable;
 
-  const factory AppWindowFailure.unexpected(String message) =
-      UnexpectedAppWindowFailure;
+  const factory AppWindowFailure.unexpected(String message) = _Unexpected;
 }

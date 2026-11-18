@@ -56,11 +56,11 @@ extension AppWindowFailurePatterns on AppWindowFailure {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( SettingsUnavailableFailure value)?  settingsUnavailable,TResult Function( UnexpectedAppWindowFailure value)?  unexpected,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _SettingsUnavailable value)?  settingsUnavailable,TResult Function( _Unexpected value)?  unexpected,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case SettingsUnavailableFailure() when settingsUnavailable != null:
-return settingsUnavailable(_that);case UnexpectedAppWindowFailure() when unexpected != null:
+case _SettingsUnavailable() when settingsUnavailable != null:
+return settingsUnavailable(_that);case _Unexpected() when unexpected != null:
 return unexpected(_that);case _:
   return orElse();
 
@@ -79,11 +79,11 @@ return unexpected(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( SettingsUnavailableFailure value)  settingsUnavailable,required TResult Function( UnexpectedAppWindowFailure value)  unexpected,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _SettingsUnavailable value)  settingsUnavailable,required TResult Function( _Unexpected value)  unexpected,}){
 final _that = this;
 switch (_that) {
-case SettingsUnavailableFailure():
-return settingsUnavailable(_that);case UnexpectedAppWindowFailure():
+case _SettingsUnavailable():
+return settingsUnavailable(_that);case _Unexpected():
 return unexpected(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -98,11 +98,11 @@ return unexpected(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( SettingsUnavailableFailure value)?  settingsUnavailable,TResult? Function( UnexpectedAppWindowFailure value)?  unexpected,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _SettingsUnavailable value)?  settingsUnavailable,TResult? Function( _Unexpected value)?  unexpected,}){
 final _that = this;
 switch (_that) {
-case SettingsUnavailableFailure() when settingsUnavailable != null:
-return settingsUnavailable(_that);case UnexpectedAppWindowFailure() when unexpected != null:
+case _SettingsUnavailable() when settingsUnavailable != null:
+return settingsUnavailable(_that);case _Unexpected() when unexpected != null:
 return unexpected(_that);case _:
   return null;
 
@@ -122,8 +122,8 @@ return unexpected(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  settingsUnavailable,TResult Function( String message)?  unexpected,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case SettingsUnavailableFailure() when settingsUnavailable != null:
-return settingsUnavailable();case UnexpectedAppWindowFailure() when unexpected != null:
+case _SettingsUnavailable() when settingsUnavailable != null:
+return settingsUnavailable();case _Unexpected() when unexpected != null:
 return unexpected(_that.message);case _:
   return orElse();
 
@@ -144,8 +144,8 @@ return unexpected(_that.message);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  settingsUnavailable,required TResult Function( String message)  unexpected,}) {final _that = this;
 switch (_that) {
-case SettingsUnavailableFailure():
-return settingsUnavailable();case UnexpectedAppWindowFailure():
+case _SettingsUnavailable():
+return settingsUnavailable();case _Unexpected():
 return unexpected(_that.message);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -162,8 +162,8 @@ return unexpected(_that.message);}
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  settingsUnavailable,TResult? Function( String message)?  unexpected,}) {final _that = this;
 switch (_that) {
-case SettingsUnavailableFailure() when settingsUnavailable != null:
-return settingsUnavailable();case UnexpectedAppWindowFailure() when unexpected != null:
+case _SettingsUnavailable() when settingsUnavailable != null:
+return settingsUnavailable();case _Unexpected() when unexpected != null:
 return unexpected(_that.message);case _:
   return null;
 
@@ -175,8 +175,8 @@ return unexpected(_that.message);case _:
 /// @nodoc
 
 
-class SettingsUnavailableFailure implements AppWindowFailure {
-  const SettingsUnavailableFailure();
+class _SettingsUnavailable implements AppWindowFailure {
+  const _SettingsUnavailable();
   
 
 
@@ -186,7 +186,7 @@ class SettingsUnavailableFailure implements AppWindowFailure {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingsUnavailableFailure);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingsUnavailable);
 }
 
 
@@ -207,8 +207,8 @@ String toString() {
 /// @nodoc
 
 
-class UnexpectedAppWindowFailure implements AppWindowFailure {
-  const UnexpectedAppWindowFailure(this.message);
+class _Unexpected implements AppWindowFailure {
+  const _Unexpected(this.message);
   
 
  final  String message;
@@ -217,13 +217,13 @@ class UnexpectedAppWindowFailure implements AppWindowFailure {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UnexpectedAppWindowFailureCopyWith<UnexpectedAppWindowFailure> get copyWith => _$UnexpectedAppWindowFailureCopyWithImpl<UnexpectedAppWindowFailure>(this, _$identity);
+_$UnexpectedCopyWith<_Unexpected> get copyWith => __$UnexpectedCopyWithImpl<_Unexpected>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is UnexpectedAppWindowFailure&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Unexpected&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -241,8 +241,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $UnexpectedAppWindowFailureCopyWith<$Res> implements $AppWindowFailureCopyWith<$Res> {
-  factory $UnexpectedAppWindowFailureCopyWith(UnexpectedAppWindowFailure value, $Res Function(UnexpectedAppWindowFailure) _then) = _$UnexpectedAppWindowFailureCopyWithImpl;
+abstract mixin class _$UnexpectedCopyWith<$Res> implements $AppWindowFailureCopyWith<$Res> {
+  factory _$UnexpectedCopyWith(_Unexpected value, $Res Function(_Unexpected) _then) = __$UnexpectedCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -253,17 +253,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$UnexpectedAppWindowFailureCopyWithImpl<$Res>
-    implements $UnexpectedAppWindowFailureCopyWith<$Res> {
-  _$UnexpectedAppWindowFailureCopyWithImpl(this._self, this._then);
+class __$UnexpectedCopyWithImpl<$Res>
+    implements _$UnexpectedCopyWith<$Res> {
+  __$UnexpectedCopyWithImpl(this._self, this._then);
 
-  final UnexpectedAppWindowFailure _self;
-  final $Res Function(UnexpectedAppWindowFailure) _then;
+  final _Unexpected _self;
+  final $Res Function(_Unexpected) _then;
 
 /// Create a copy of AppWindowFailure
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(UnexpectedAppWindowFailure(
+  return _then(_Unexpected(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));

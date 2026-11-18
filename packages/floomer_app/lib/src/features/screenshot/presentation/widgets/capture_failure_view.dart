@@ -26,11 +26,10 @@ class const CaptureFailureView({
     );
   }
 
-  String get _body => switch (failure) {
-    PermissionDeniedFailure() => 'floomer is not allowed to record the screen.',
-    NoDisplayFailure() => 'No capturable display was found.',
-    ConversionFailedFailure() =>
-      'The capture could not be converted into an image.',
-    UnexpectedScreenshotFailure(:final message) => message,
-  };
+  String get _body => failure.when(
+    permissionDenied: () => 'floomer is not allowed to record the screen.',
+    noDisplay: () => 'No capturable display was found.',
+    conversionFailed: () => 'The capture could not be converted into an image.',
+    unexpected: (message) => message,
+  );
 }

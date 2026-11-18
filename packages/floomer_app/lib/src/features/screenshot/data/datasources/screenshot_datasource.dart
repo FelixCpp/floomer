@@ -1,16 +1,16 @@
 import 'package:floomer/src/core/platform/floomer_method_channel.dart';
-import 'package:floomer/src/features/screenshot/data/models/screen_capture_model.dart';
+import 'package:floomer/src/features/screenshot/data/models/screen_capture_dto.dart';
 import 'package:flutter/services.dart';
 
 abstract interface class ScreenshotDataSource {
-  Future<ScreenCaptureModel> captureDisplayUnderCursor();
+  Future<ScreenCaptureDto> captureScreenshot();
 }
 
 class const MethodChannelScreenshotDataSource({
   required final FloomerMethodChannel _channel,
 }) implements ScreenshotDataSource {
   @override
-  Future<ScreenCaptureModel> captureDisplayUnderCursor() async {
+  Future<ScreenCaptureDto> captureScreenshot() async {
     final payload = await _channel.captureScreenshot();
     if (payload == null) {
       throw PlatformException(
@@ -19,6 +19,6 @@ class const MethodChannelScreenshotDataSource({
       );
     }
 
-    return ScreenCaptureModel.fromMap(payload);
+    return .fromMap(payload);
   }
 }

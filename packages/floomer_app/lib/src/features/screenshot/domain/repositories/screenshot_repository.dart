@@ -1,7 +1,7 @@
-import 'package:floomer/src/features/screenshot/domain/entities/screenshot.dart';
+import 'package:floomer/src/features/screenshot/domain/entities/screen_capture.dart';
 
 abstract interface class ScreenshotRepository {
-  Screenshot? get current;
-  Future<Screenshot> capture();
+  ScreenCapture? get current;
+  Future<ScreenCapture> capture();
   void dispose();
 }
