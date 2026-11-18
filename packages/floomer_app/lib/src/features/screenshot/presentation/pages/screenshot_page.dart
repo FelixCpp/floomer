@@ -11,8 +11,6 @@ class const ScreenshotPage({super.key}) extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ScreenshotBloc, ScreenshotState>(
       builder: (context, state) => switch (state) {
-        // Nothing to render while capturing: the window is still invisible, so
-        // a spinner would never be seen anyway.
         ScreenshotInitial() ||
         ScreenshotInProgress() => const SizedBox.shrink(),
         ScreenshotReady(:final screenshot) => CaptureView(

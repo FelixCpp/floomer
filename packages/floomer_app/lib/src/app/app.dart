@@ -1,3 +1,4 @@
+import 'package:floomer/src/app/widgets/close_on_escape.dart';
 import 'package:floomer/src/app/widgets/window_reveal.dart';
 import 'package:floomer/src/core/platform/floomer_method_channel.dart';
 import 'package:floomer/src/features/app_window/presentation/app_window_scope.dart';
@@ -16,7 +17,9 @@ class const FloomerApp({super.key}) extends StatelessWidget {
           title: 'floomer',
           debugShowCheckedModeBanner: false,
           home: const ScreenshotScope(
-            child: WindowReveal(child: ScreenshotPage()),
+            child: WindowReveal(
+              child: CloseOnEscape(child: ScreenshotPage()),
+            ),
           ),
         ),
       ),

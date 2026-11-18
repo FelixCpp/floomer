@@ -6,35 +6,26 @@ import 'package:floomer/src/features/screenshot/presentation/bloc/screenshot_blo
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Provides the screenshot feature's dependencies.
-///
-/// Scoped to this subtree rather than the whole app: nothing outside the
-/// feature talks to the capture, and the repository's `dispose` — which frees
-/// roughly 30 MB of GPU memory — then runs when the feature is torn down
-/// instead of only at app exit.
 class const ScreenshotScope({
   required final Widget child,
   super.key,
 }) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider<ScreenshotDataSource>(
-      create: (context) => MethodChannelScreenshotDataSource(
-        channel: RepositoryProvider.of<FloomerMethodChannel>(context),
+    return RepositoryProvider<ScreenshotRepository>(
+      create: (context) => ScreenshotRepositoryImpl(
+        dataSource: MethodChannelScreenshotDataSource(
+          channel: RepositoryProvider.of<FloomerMethodChannel>(context),
+        ),
       ),
-      child: RepositoryProvider<ScreenshotRepository>(
-        create: (context) => ScreenshotRepositoryImpl(
-          dataSource: RepositoryProvider.of<ScreenshotDataSource>(context),
-        ),
-        dispose: (repository) => repository.dispose(),
-        child: BlocProvider(
-          create: (context) => ScreenshotBloc(
-            repository: RepositoryProvider.of<ScreenshotRepository>(
-              context,
-            ),
-          )..add(const ScreenshotEvent.requested()),
-          child: child,
-        ),
+      dispose: (repository) => repository.dispose(),
+      child: BlocProvider(
+        create: (context) => ScreenshotBloc(
+          repository: RepositoryProvider.of<ScreenshotRepository>(
+            context,
+          ),
+        )..add(const ScreenshotEvent.requested()),
+        child: child,
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:floomer/src/features/app_window/domain/repositories/app_window_repository.dart';
 
-class const ShowWindow({
-  required final AppWindowRepository _repository,
-}) {
-  Future<void> call() => _repository.show();
+class const ShowWindow(final AppWindowRepository _repository) {
+  Future<void> call() {
+    return _repository.show();
+  }
 }

@@ -3,7 +3,6 @@ import 'package:floomer/src/features/screenshot/presentation/widgets/centered_me
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Shown when macOS has not granted screen recording access.
 class const PermissionDeniedView({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

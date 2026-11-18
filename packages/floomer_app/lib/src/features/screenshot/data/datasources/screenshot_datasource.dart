@@ -3,9 +3,6 @@ import 'package:floomer/src/features/screenshot/data/models/screen_capture_model
 import 'package:flutter/services.dart';
 
 abstract interface class ScreenshotDataSource {
-  /// Captures the display the cursor is currently on.
-  ///
-  /// Throws a [PlatformException] when the native side reports an error.
   Future<ScreenCaptureModel> captureDisplayUnderCursor();
 }
 

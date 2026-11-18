@@ -4,7 +4,6 @@ import 'package:floomer/src/features/screenshot/presentation/widgets/centered_me
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Shown when the capture failed for a reason the user cannot act on.
 class const CaptureFailureView({
   required final ScreenshotFailure failure,
   super.key,
@@ -16,16 +15,17 @@ class const CaptureFailureView({
       body: _body,
       actions: [
         TextButton(
-          onPressed: () => BlocProvider.of<AppWindowBloc>(
-            context,
-          ).add(const AppWindowEvent.closeRequested()),
+          onPressed: () {
+            BlocProvider.of<AppWindowBloc>(context).add(
+              const AppWindowEvent.closeRequested(),
+            );
+          },
           child: Text('Quit'),
         ),
       ],
     );
   }
 
-  /// Failures carry no text of their own, so the wording lives here.
   String get _body => switch (failure) {
     PermissionDeniedFailure() => 'floomer is not allowed to record the screen.',
     NoDisplayFailure() => 'No capturable display was found.',

@@ -27,8 +27,6 @@ class ScreenshotRepositoryImpl({
     }
   }
 
-  /// Releases the decoded capture — roughly 30 MB of GPU memory on a Retina
-  /// display, so this is not optional bookkeeping.
   @override
   void dispose() {
     _current?.image.dispose();

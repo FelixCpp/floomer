@@ -1,6 +1,5 @@
 import 'package:material_ui/material_ui.dart';
 
-/// Shared layout for the screens that explain why there is no screenshot.
 class const CenteredMessage({
   required final String title,
   required final String body,

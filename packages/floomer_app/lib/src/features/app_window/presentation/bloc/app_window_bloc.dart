@@ -14,11 +14,9 @@ part 'app_window_state.dart';
 class AppWindowBloc({
   required AppWindowRepository repository,
 }) extends Bloc<AppWindowEvent, AppWindowState> {
-  final _showWindow = ShowWindow(repository: repository);
-  final _openScreenRecordingSettings = OpenScreenRecordingSettings(
-    repository: repository,
-  );
-  final _closeApp = CloseApp(repository: repository);
+  final _showWindow = ShowWindow(repository);
+  final _openScreenRecordingSettings = OpenScreenRecordingSettings(repository);
+  final _closeApp = CloseApp(repository);
 
   this : super(const AppWindowState.hidden()) {
     on<_ShowRequested>(_onShowRequested, transformer: droppable());
