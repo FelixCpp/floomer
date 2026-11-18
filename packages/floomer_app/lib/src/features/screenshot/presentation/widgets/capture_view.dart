@@ -15,15 +15,13 @@ class const CaptureView({
         child: FlashlightEffect(
           child: Builder(
             builder: (context) {
-              // While resizing the light, scroll gestures must not move or
-              // zoom the image.
               final canResizeLight = FlashlightScope.of(context).canResizeLight;
 
               return InteractiveViewer(
                 scaleEnabled: !canResizeLight,
                 panEnabled: !canResizeLight,
                 trackpadScrollCausesScale: true,
-                minScale: 0.1,
+                minScale: 0.01,
                 maxScale: 100.0,
                 child: RawImage(
                   image: screenshot.image,
