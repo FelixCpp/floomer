@@ -4,14 +4,23 @@ import 'package:flutter/widgets.dart';
 class const MirroringScope({
   required final Widget child,
 }) extends StatefulWidget {
-  static MirroringController? maybeOf(BuildContext context) {
+  static MirroringController? maybeOf(
+    BuildContext context, {
+    bool listen = true,
+  }) {
+    if (listen) {
+      return context
+          .dependOnInheritedWidgetOfExactType<_MirroringInherited>()
+          ?.notifier;
+    }
+
     return context
-        .dependOnInheritedWidgetOfExactType<_MirroringInherited>()
+        .getInheritedWidgetOfExactType<_MirroringInherited>()
         ?.notifier;
   }
 
-  static MirroringController of(BuildContext context) {
-    final result = maybeOf(context);
+  static MirroringController of(BuildContext context, {bool listen = true}) {
+    final result = maybeOf(context, listen: listen);
     assert(result != null, "MirroringController is not registered.");
     return result!;
   }

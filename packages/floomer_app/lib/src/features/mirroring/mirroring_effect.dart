@@ -1,4 +1,3 @@
-import 'package:floomer/src/features/mirroring/mirroring_input.dart';
 import 'package:floomer/src/features/mirroring/mirroring_scope.dart';
 import 'package:flutter/widgets.dart';
 
@@ -8,19 +7,36 @@ class const MirroringEffect({
 }) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MirroringScope(
-      child: MirroringInput(
-        child: _MousePositionProvider(
-          child: Builder(
-            builder: (context) {
-              final controller = MirroringScope.of(context);
+    return _KeyboardProvider(
+      child: _MousePositionProvider(
+        child: Builder(
+          builder: (context) {
+            final controller = MirroringScope.of(context);
 
-              return Transform(
-                transform: controller.matrix,
-                child: child,
-              );
-            },
-          ),
+            return Transform(
+              transform: controller.matrix,
+              child: child,
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class const _KeyboardProvider({
+  required final Widget child,
+}) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CallbackShortcuts(
+      bindings: {
+        SingleActivator(.keyM): () => MirroringScope.of(context).toggle(),
+      },
+      child: FocusScope(
+        child: Focus(
+          autofocus: true,
+          child: child,
         ),
       ),
     );
