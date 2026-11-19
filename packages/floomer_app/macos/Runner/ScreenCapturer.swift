@@ -80,9 +80,7 @@ enum ScreenCapturer {
   }
 
   private static func displayUnderCursor(among displays: [SCDisplay]) -> SCDisplay? {
-    let cursor = NSEvent.mouseLocation
-    let screen = NSScreen.screens.first { $0.frame.contains(cursor) } ?? NSScreen.main
-    guard let displayID = screen?.displayID else { return displays.first }
+    guard let displayID = NSScreen.underCursor?.displayID else { return displays.first }
     return displays.first { $0.displayID == displayID } ?? displays.first
   }
 
@@ -130,6 +128,13 @@ enum ScreenCapturer {
 }
 
 extension NSScreen {
+  /// The screen the mouse cursor currently sits on, falling back to the main
+  /// screen.
+  static var underCursor: NSScreen? {
+    let cursor = NSEvent.mouseLocation
+    return screens.first { $0.frame.contains(cursor) } ?? main
+  }
+
   fileprivate var displayID: CGDirectDisplayID? {
     deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID
   }

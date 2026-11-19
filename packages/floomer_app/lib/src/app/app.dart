@@ -2,6 +2,7 @@ import 'package:floomer/src/app/widgets/close_on_escape.dart';
 import 'package:floomer/src/app/widgets/window_reveal.dart';
 import 'package:floomer/src/core/platform/floomer_method_channel.dart';
 import 'package:floomer/src/features/app_window/presentation/app_window_scope.dart';
+import 'package:floomer/src/features/background_color/presentation/background_color_scope.dart';
 import 'package:floomer/src/features/screenshot/presentation/pages/screenshot_page.dart';
 import 'package:floomer/src/features/screenshot/presentation/screenshot_scope.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +18,10 @@ class const FloomerApp({super.key}) extends StatelessWidget {
           title: 'floomer',
           debugShowCheckedModeBanner: false,
           home: const ScreenshotScope(
-            child: WindowReveal(
-              child: CloseOnEscape(child: ScreenshotPage()),
+            child: BackgroundColorScope(
+              child: WindowReveal(
+                child: CloseOnEscape(child: ScreenshotPage()),
+              ),
             ),
           ),
         ),

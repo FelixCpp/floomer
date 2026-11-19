@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 
 class const FlashlightEffect({
   super.key,
+  required final Color backgroundColor,
   required final Widget child,
 }) extends StatelessWidget {
   @override
@@ -12,6 +13,7 @@ class const FlashlightEffect({
     return FlashlightScope(
       child: FlashlightInput(
         child: FlashlightShader(
+          backgroundColor: backgroundColor,
           child: child,
         ),
       ),

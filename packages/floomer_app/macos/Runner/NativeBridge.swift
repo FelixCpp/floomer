@@ -70,6 +70,11 @@ enum NativeBridge {
       return
     }
 
+    // Cover the display that was just captured, so the screenshot lines up 1:1
+    // with the real desktop. Resize before revealing to avoid a visible jump.
+    if let screen = NSScreen.underCursor {
+      window.setFrame(screen.frame, display: true)
+    }
     window.alphaValue = 1
     window.makeKeyAndOrderFront(nil)
     NSApplication.shared.activate(ignoringOtherApps: true)

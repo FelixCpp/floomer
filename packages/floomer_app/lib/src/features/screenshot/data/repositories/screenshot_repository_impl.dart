@@ -12,10 +12,14 @@ import 'package:flutter/services.dart';
 class ScreenshotRepositoryImpl({
   required final ScreenshotDataSource _dataSource,
 }) implements ScreenshotRepository {
+  final _captures = StreamController<ScreenCapture>.broadcast();
   ScreenCapture? _current;
 
   @override
   ScreenCapture? get current => _current;
+
+  @override
+  Stream<ScreenCapture> get captures => _captures.stream;
 
   @override
   Future<ScreenCapture> capture() async {
@@ -25,6 +29,7 @@ class ScreenshotRepositoryImpl({
 
       _current?.image.dispose();
       _current = screenshot;
+      _captures.add(screenshot);
       return screenshot;
     } on PlatformException catch (exception) {
       throw _failureFor(exception);
@@ -33,6 +38,7 @@ class ScreenshotRepositoryImpl({
 
   @override
   void dispose() {
+    unawaited(_captures.close());
     _current?.image.dispose();
     _current = null;
   }
@@ -62,6 +68,12 @@ extension on ScreenCaptureDto {
           .new(
             image: image,
             scale: scale,
+            pixels: .new(
+              bytes: pixels,
+              width: width,
+              height: height,
+              bytesPerRow: bytesPerRow,
+            ),
           ),
         );
       },

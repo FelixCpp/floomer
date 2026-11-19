@@ -1,3 +1,4 @@
+import 'package:floomer/src/features/background_color/presentation/widgets/background_color_builder.dart';
 import 'package:floomer/src/features/flashlight/flashlight_effect.dart';
 import 'package:floomer/src/features/flashlight/flashlight_scope.dart';
 import 'package:floomer/src/features/mirroring/mirroring_effect.dart';
@@ -38,7 +39,11 @@ class _CaptureViewState extends State<CaptureView> {
         child: PaintingKeyboardInput(
           child: PaintingEffect(
             transformationController: _transformationController,
-            child: FlashlightEffect(
+            child: BackgroundColorBuilder(
+              builder: (context, backgroundColor, child) => FlashlightEffect(
+                backgroundColor: backgroundColor,
+                child: child!,
+              ),
               child: Builder(
                 builder: (context) {
                   final canResizeLight = FlashlightScope.of(
@@ -49,8 +54,6 @@ class _CaptureViewState extends State<CaptureView> {
                   return InteractiveViewer(
                     transformationController: _transformationController,
                     scaleEnabled: !canResizeLight,
-                    // The viewer pans with every mouse button, so it has
-                    // to be switched off while painting with the right one.
                     panEnabled: !canResizeLight && !isPainting,
                     trackpadScrollCausesScale: true,
                     minScale: 0.1,

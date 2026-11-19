@@ -6,6 +6,7 @@ import 'package:flutter_shaders/flutter_shaders.dart';
 
 class const FlashlightShader({
   super.key,
+  required final Color backgroundColor,
   required final Widget child,
 }) extends StatelessWidget {
   @override
@@ -30,7 +31,7 @@ class const FlashlightShader({
           imageFilter: ui.ImageFilter.shader(shader),
           enabled: controller.isActive,
           child: ColoredBox(
-            color: Color(0xFF000000),
+            color: backgroundColor,
             child: child,
           ),
         );

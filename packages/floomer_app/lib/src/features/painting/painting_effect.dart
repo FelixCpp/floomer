@@ -42,7 +42,7 @@ class _Painter({
       ..style = .stroke
       ..strokeJoin = .round
       ..strokeCap = .round
-      ..strokeWidth = 4
+      ..strokeWidth = 2
       ..color = .fromARGB(255, 255, 0, 0);
 
     final imageToScreen =
