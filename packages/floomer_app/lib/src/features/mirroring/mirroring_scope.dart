@@ -2,6 +2,7 @@ import 'package:floomer/src/features/mirroring/mirroring_controller.dart';
 import 'package:flutter/widgets.dart';
 
 class const MirroringScope({
+  super.key,
   required final Widget child,
 }) extends StatefulWidget {
   static MirroringController? maybeOf(

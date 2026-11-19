@@ -14,6 +14,17 @@ class MirroringController extends ChangeNotifier {
     _matrix = _mirrorAt(_mousePosition) * _matrix;
     notifyListeners();
   }
+
+  /// Drops every mirroring back to the unflipped image.
+  ///
+  /// Mirroring twice at different cursor positions adds up to a translation,
+  /// so without this there is no way back to the original orientation.
+  void reset() {
+    if (_matrix.isIdentity()) return;
+
+    _matrix = Matrix4.identity();
+    notifyListeners();
+  }
 }
 
 Matrix4 _mirrorAt(Offset position) {

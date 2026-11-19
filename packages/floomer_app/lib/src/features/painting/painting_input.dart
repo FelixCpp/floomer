@@ -12,6 +12,7 @@ class const PaintingKeyboardInput({
 
     return CallbackShortcuts(
       bindings: {
+        const SingleActivator(.keyZ, meta: true): () => controller.undo(),
         const SingleActivator(.keyC): () => controller.clear(),
       },
       child: child,
@@ -27,22 +28,42 @@ class const PaintingPointerInput({
   Widget build(BuildContext context) {
     final controller = PaintingScope.of(context, listen: false);
 
-    return Listener(
-      onPointerDown: (event) {
-        if (_isPaintingButton(event.buttons)) {
-          controller.startStroke(event.localPosition);
-        }
+    return RawGestureDetector(
+      gestures: {
+        // Claims the gesture arena the moment the painting button goes down,
+        // which rejects the surrounding InteractiveViewer's recognizer for
+        // that pointer.
+        //
+        // Gesture recognizers accept every mouse button by default, so the
+        // viewer would otherwise start panning on a right drag too. Switching
+        // `panEnabled` off in reaction to a stroke cannot prevent that: the
+        // rebuild lands a frame later, and by then the image has already
+        // moved a few pixels.
+        EagerGestureRecognizer:
+            GestureRecognizerFactoryWithHandlers<EagerGestureRecognizer>(
+              () => EagerGestureRecognizer(
+                allowedButtonsFilter: _isPaintingButton,
+              ),
+              (_) {},
+            ),
       },
-      onPointerMove: (event) {
-        if (_isPaintingButton(event.buttons)) {
-          controller.addPoint(event.localPosition);
-        }
-      },
-      onPointerUp: (_) => controller.endStroke(),
-      onPointerCancel: (_) => controller.endStroke(),
-      child: child,
+      child: Listener(
+        onPointerDown: (event) {
+          if (_isPaintingButton(event.buttons)) {
+            controller.startStroke(event.localPosition);
+          }
+        },
+        onPointerMove: (event) {
+          if (_isPaintingButton(event.buttons)) {
+            controller.addPoint(event.localPosition);
+          }
+        },
+        onPointerUp: (_) => controller.endStroke(),
+        onPointerCancel: (_) => controller.endStroke(),
+        child: child,
+      ),
     );
   }
-
-  bool _isPaintingButton(int buttons) => (buttons & kSecondaryMouseButton) != 0;
 }
+
+bool _isPaintingButton(int buttons) => (buttons & kSecondaryMouseButton) != 0;

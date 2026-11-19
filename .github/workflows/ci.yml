@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Format, analyze & test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/floomer_app
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: subosito/flutter-action@v2
+        with:
+          # Pinned: floomer uses primary constructors and dot shorthands, so an
+          # older SDK does not parse the sources at all.
+          flutter-version: 3.50.0
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+
+      - run: dart format --output=none --set-exit-if-changed .
+
+      - run: flutter analyze
+
+      # Guarded so the job stays green until the first test lands.
+      - name: Test
+        run: |
+          if [ -d test ]; then
+            flutter test
+          else
+            echo "No test directory yet - skipping."
+          fi

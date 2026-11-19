@@ -28,6 +28,15 @@ class PaintingController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Removes the stroke that was finished last, or the one in progress.
+  void undo() {
+    if (_strokes.isEmpty) return;
+
+    _strokes.removeLast();
+    _currentStroke = null;
+    notifyListeners();
+  }
+
   void clear() {
     _strokes.clear();
     _currentStroke = null;

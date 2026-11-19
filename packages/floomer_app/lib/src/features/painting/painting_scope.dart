@@ -54,7 +54,7 @@ class _PaintingScopeState extends State<PaintingScope> {
   }
 }
 
-class _PaintingInherited({
+class const _PaintingInherited({
   required super.notifier,
   required super.child,
 }) extends InheritedNotifier<PaintingController>;
