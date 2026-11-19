@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/widgets.dart';
 
 class FlashlightController extends ChangeNotifier {
-  var isActive = true;
+  var isActive = false;
   var mousePosition = Offset.zero;
   var lightRadius = 140.0;
   var lightSoftness = 60.0;
