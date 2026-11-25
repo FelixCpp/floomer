@@ -25,7 +25,7 @@ void main(void) {
         dist
     );
 
-    float darkness = 0.08 + light * 0.92;
+    float darkness = 0.30 + light * 0.92;
 
     fragColor = vec4(
         color.rgb * darkness,
