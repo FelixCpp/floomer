@@ -155,6 +155,14 @@ class const _ShortcutCard() extends StatelessWidget {
       ],
     ),
     (
+      'Color picker',
+      [
+        (['P'], 'Show the color under the cursor'),
+        (['Cmd', 'C'], 'Copy it as hex'),
+        (['Shift', 'Cmd', 'C'], 'Copy it as RGB'),
+      ],
+    ),
+    (
       'floomer',
       [
         (['H'], 'Show or hide this list'),

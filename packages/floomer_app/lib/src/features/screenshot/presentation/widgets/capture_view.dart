@@ -1,5 +1,7 @@
 import 'package:floomer/src/app/widgets/shortcut_overlay.dart';
 import 'package:floomer/src/features/background_color/presentation/widgets/background_color_builder.dart';
+import 'package:floomer/src/features/color_picker/color_picker_effect.dart';
+import 'package:floomer/src/features/color_picker/color_picker_input.dart';
 import 'package:floomer/src/features/flashlight/flashlight_effect.dart';
 import 'package:floomer/src/features/flashlight/flashlight_scope.dart';
 import 'package:floomer/src/features/mirroring/mirroring_effect.dart';
@@ -39,42 +41,47 @@ class _CaptureViewState extends State<CaptureView> {
       child: MirroringScope(
         child: _ViewResetInput(
           transformationController: _transformationController,
-          child: PaintingScope(
-            child: PaintingKeyboardInput(
-              child: PaintingEffect(
-                transformationController: _transformationController,
-                child: BackgroundColorBuilder(
-                  builder: (context, backgroundColor, child) =>
-                      FlashlightEffect(
-                        backgroundColor: backgroundColor,
-                        child: child!,
-                      ),
-                  child: Builder(
-                    builder: (context) {
-                      final canResizeLight = FlashlightScope.of(
-                        context,
-                      ).canResizeLight;
+          child: ColorPickerEffect(
+            capture: widget.screenshot,
+            child: PaintingScope(
+              child: PaintingKeyboardInput(
+                child: PaintingEffect(
+                  transformationController: _transformationController,
+                  child: BackgroundColorBuilder(
+                    builder: (context, backgroundColor, child) =>
+                        FlashlightEffect(
+                          backgroundColor: backgroundColor,
+                          child: child!,
+                        ),
+                    child: Builder(
+                      builder: (context) {
+                        final canResizeLight = FlashlightScope.of(
+                          context,
+                        ).canResizeLight;
 
-                      return InteractiveViewer(
-                        transformationController: _transformationController,
-                        scaleEnabled: !canResizeLight,
-                        panEnabled: !canResizeLight,
-                        trackpadScrollCausesScale: true,
-                        minScale: 0.1,
-                        maxScale: 100.0,
-                        boundaryMargin: .all(.infinity),
-                        child: MirroringEffect(
-                          child: PaintingPointerInput(
-                            child: RawImage(
-                              image: widget.screenshot.image,
-                              scale: widget.screenshot.scale,
-                              fit: .fill,
-                              filterQuality: .none,
+                        return InteractiveViewer(
+                          transformationController: _transformationController,
+                          scaleEnabled: !canResizeLight,
+                          panEnabled: !canResizeLight,
+                          trackpadScrollCausesScale: true,
+                          minScale: 0.1,
+                          maxScale: 100.0,
+                          boundaryMargin: .all(.infinity),
+                          child: MirroringEffect(
+                            child: PaintingPointerInput(
+                              child: ColorPickerPointerInput(
+                                child: RawImage(
+                                  image: widget.screenshot.image,
+                                  scale: widget.screenshot.scale,
+                                  fit: .fill,
+                                  filterQuality: .none,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
